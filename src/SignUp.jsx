@@ -13,7 +13,7 @@ export default function SignUp() {
 
       <div className="flex flex-col items-center mb-10">
         <img
-          src="/logo.png"
+          src="/LogoCDSS.png"
           alt="CDSS Logo"
           className="w-20 h-20 mb-4"
         />
