@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { Link } from "react-router-dom";
+import logo from "./assets/logo project.png";
+import SignIn from "./SignIn";
 
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,11 +14,11 @@ export default function SignUp() {
       style={{ backgroundColor: "#FFFFFF" }}
     >
 
-      <div className="flex flex-col items-center mb-10">
+      <div className="flex flex-col items-center mb-10 "> 
         <img
-          src="/LogoCDSS.png"
+          src={logo}
           alt="CDSS Logo"
-          className="w-20 h-20 mb-4"
+          className="w-30 h-30 mb-4"
         />
         <h1 className="text-7xl font-semibold" style={{ color: "#050912CC" }}>
           Sign Up
@@ -63,7 +66,7 @@ export default function SignUp() {
             placeholder="Confirm Password"
             className="w-full px-5 py-4 text-lg rounded-xl border focus:outline-none"
             style={{
-              borderColor: "#39A9F080",
+              borderColor: "#39A9F080",                                                                                                       
               color: "#3A495B",
             }}
           />
@@ -80,7 +83,7 @@ export default function SignUp() {
 
   
         <button
-          className="w-full py-4 text-xl text-white rounded-xl font-semibold"
+          className="w-full py-4 text-xl text-white rounded-xl font-semibold hover:bg-red-500  transition-colors duration-300 ease-in-out"
           style={{ backgroundColor: "#39A9F0" }}
         >
           Sign Up
@@ -92,9 +95,10 @@ export default function SignUp() {
           <a
             href="/signin"
             className="font-semibold"
-            style={{ color: "#39A9F0" }}
+            style={{ color: "#00CED1" }}
           >
-            Sign In
+            <a href={SignIn}>
+              Sign In</a>
           </a>
         </p>
       </div>
