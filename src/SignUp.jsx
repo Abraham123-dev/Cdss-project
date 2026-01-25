@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
 import logo from "./assets/logo project.png";
 import SignIn from "./SignIn";
 
@@ -9,96 +8,74 @@ export default function SignUp() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-center px-6"
-      style={{ backgroundColor: "#FFFFFF" }}
-    >
-
-      <div className="flex flex-col items-center mb-10 "> 
-        <img
-          src={logo}
-          alt="CDSS Logo"
-          className="w-30 h-30 mb-4"
-        />
-        <h1 className="text-7xl font-semibold" style={{ color: "#050912CC" }}>
-          Sign Up
-        </h1>
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 bg-white">
+      <div className="flex flex-col items-center mb-8">
+        <img src={logo} alt="CDSS Logo" className="w-24 h-24 mb-6" />
+        <h1 className="text-4xl font-semibold text-[#050912CC]">Sign Up</h1>
       </div>
 
+      <div className="w-full max-w-md mx-auto">
+        <form className="space-y-6">
+          <div>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full px-4 py-3 text-lg rounded-xl border-2 border-[#39A9F080] text-[#050912CC] placeholder-gray-400 focus:outline-none focus:border-[#39A9F0] focus:ring-2 focus:ring-[#39A9F0]/20 transition-all duration-200"
+              list="emails"
+            />
+            <datalist id="emails">
+              <option value="user@example.com" />
+              <option value="john.doe@email.com" />
+              <option value="jane.smith@domain.com" />
+              <option value="test.user@gmail.com" />
+            </datalist>
+          </div>
 
-      <div className="w-full max-w-xl mx-auto">
-        <div className="mb-6">
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full px-5 py-4 text- rounded-xl border focus:outline-none"
-            style={{
-              borderColor: "#39A9F080",
-              color: "#050912CC",
-            }}
-          />
-        </div>
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              className="w-full px-4 py-3 text-lg rounded-xl border-2 border-[#39A9F080] text-[#050912CC] placeholder-gray-400 focus:outline-none focus:border-[#39A9F0] focus:ring-2 focus:ring-[#39A9F0]/20 transition-all duration-200"
+            />
+            <button
+              type="button"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#3A495B] hover:text-[#39A9F0] transition-colors duration-200"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
 
-        <div className="mb-6 relative">
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            className="w-full px-5 py-4 text-lg rounded-xl border focus:outline-none"
-            style={{
-              borderColor: "#39A9F080",
-              color: "#050912CC",
-            }}
-          />
+          <div className="relative">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Confirm Password"
+              className="w-full px-4 py-3 text-lg rounded-xl border-2 border-[#39A9F080] text-[#050912CC] placeholder-gray-400 focus:outline-none focus:border-[#39A9F0] focus:ring-2 focus:ring-[#39A9F0]/20 transition-all duration-200"
+            />
+            <button
+              type="button"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#3A495B] hover:text-[#39A9F0] transition-colors duration-200"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            >
+              {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
+
           <button
-            type="button"
-            className="absolute right-4 top-1/2 -translate-y-1/2"
-            onClick={() => setShowPassword(!showPassword)}
-            style={{ color: "#3A495B" }}
+            type="submit"
+            className="w-full py-3 text-lg text-white rounded-xl font-semibold bg-[#39A9F0] hover:bg-[#2E8BC0] active:bg-[#2570A1] transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
-            {showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
+            Sign Up
           </button>
-        </div>
+        </form>
 
-
-        <div className="mb-10 relative">
-          <input
-            type={showConfirmPassword ? "text" : "password"}
-            placeholder="Confirm Password"
-            className="w-full px-5 py-4 text-lg rounded-xl border focus:outline-none"
-            style={{
-              borderColor: "#39A9F080",                                                                                                       
-              color: "#3A495B",
-            }}
-          />
-
-          <button
-            type="button"
-            className="absolute right-4 top-1/2 -translate-y-1/2"
-            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-            style={{ color: "#3A495B" }}
-          >
-            {showConfirmPassword ? <EyeOff size={22} /> : <Eye size={22} />}
-          </button>
-        </div>
-
-  
-        <button
-          className="w-full py-4 text-xl text-white rounded-xl font-semibold hover:bg-red-500  transition-colors duration-300 ease-in-out"
-          style={{ backgroundColor: "#39A9F0" }}
-        >
-          Sign Up
-        </button>
-
-
-        <p className="text-center text-base mt-6 " style={{ color: "#000000" }}>
+        <p className="text-center text-sm mt-8 text-gray-600">
           Already have an account?{" "}
           <a
             href="/signin"
-            className="font-semibold"
-            style={{ color: "#00CED1" }}
+            className="font-semibold text-[#39A9F0] hover:text-[#2E8BC0] transition-colors duration-200"
           >
-            <a href={SignIn}>
-              Sign In</a>
+            Sign In
           </a>
         </p>
       </div>
