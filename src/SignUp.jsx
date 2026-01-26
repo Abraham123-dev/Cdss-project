@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import logo from "./assets/logo project.png";
-import SignIn from "./SignIn";
 
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,14 +20,7 @@ export default function SignUp() {
               type="email"
               placeholder="Email"
               className="w-full px-4 py-3 text-lg rounded-xl border-2 border-[#39A9F080] text-[#050912CC] placeholder-gray-400 focus:outline-none focus:border-[#39A9F0] focus:ring-2 focus:ring-[#39A9F0]/20 transition-all duration-200"
-              list="emails"
             />
-            <datalist id="emails">
-              <option value="user@example.com" />
-              <option value="john.doe@email.com" />
-              <option value="jane.smith@domain.com" />
-              <option value="test.user@gmail.com" />
-            </datalist>
           </div>
 
           <div className="relative">
@@ -39,7 +31,7 @@ export default function SignUp() {
             />
             <button
               type="button"
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#3A495B] hover:text-[#39A9F0] transition-colors duration-200"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#3A495B]"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -54,7 +46,7 @@ export default function SignUp() {
             />
             <button
               type="button"
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#3A495B] hover:text-[#39A9F0] transition-colors duration-200"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#3A495B]"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             >
               {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -63,7 +55,7 @@ export default function SignUp() {
 
           <button
             type="submit"
-            className="w-full py-3 text-lg text-white rounded-xl font-semibold bg-[#39A9F0] hover:bg-[#2E8BC0] active:bg-[#2570A1] transition-colors duration-200 shadow-lg hover:shadow-xl"
+            className="-full py-3 text-lg text-white rounded-xl font-semibold bg-[#39A9F0] hover:bg-[#2E8BC0] active:bg-[#2570A1] transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
             Sign Up
           </button>
@@ -72,7 +64,7 @@ export default function SignUp() {
         <p className="text-center text-sm mt-8 text-gray-600">
           Already have an account?{" "}
           <a
-            href="/signin"
+            href="/sign"
             className="font-semibold text-[#39A9F0] hover:text-[#2E8BC0] transition-colors duration-200"
           >
             Sign In

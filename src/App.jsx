@@ -1,11 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import SignUp from './SignUp';
+import SignUp from './sign';
 import SignIn from './SignIn';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <SignUp />,
+    element: <SignUp onLogin={() => console.log('Sign up successful')} onSwitchToSignIn={() => console.log('Switching to sign in')} />,
   },
   {
     path: "/signin",
